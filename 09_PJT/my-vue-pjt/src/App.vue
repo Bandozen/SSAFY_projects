@@ -1,0 +1,55 @@
+<template>
+  <div id="app">
+    <img src="@/assets/넷플릭스2.png" alt="">
+    <nav>
+      <router-link to="/movies">Movie</router-link> |
+      <router-link to="/random">Random</router-link> |
+      <router-link to="/watch-list">WatchList</router-link>
+    </nav>
+    <router-view/>
+  </div>
+</template>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
+
+<script>
+export default {
+  data() {
+    return {
+      movieList: null
+    }
+  },
+  methods: {
+    getMovies() {
+      this.$store.dispatch('getMovies')
+    },
+
+  },
+  created() {
+    this.getMovies()
+    this.$store.dispatch('weatherLoad')
+  },
+}
+
+</script>

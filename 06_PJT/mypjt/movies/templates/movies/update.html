@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+  <h1>영화 정보 수정하기</h1>
+  <hr>
+  <form action="{% url 'movies:update' movie.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div>
+      <label for="title">제목</label>
+      <input type="text" id="title" name="title" value="{{ movie.title }}">
+    </div>
+    <div>
+      <label for="description">내용</label>
+      <textarea id="description" rows="3" name="description">{{ movie.description }}</textarea>
+    </div>
+    <input type="reset" value="Reset">
+    <button type="submit">제출하기</button>
+  </form>
+  <hr>
+  <a href="{% url 'movies:detail' movie.pk %}" class="btn btn-primary btn-sm">돌아가기</a>
+{% endblock content %}

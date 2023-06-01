@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+<section class="page-section about-heading">
+  <div class="container">
+    <img
+      class="img-fluid rounded about-heading-img mb-3 mb-lg-0"
+      src={% static 'assets/img/about.jpg' %}
+      alt="..."
+    />
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper"
+                >"Good Afternoon, Good Evening, and Good night."</span
+              >
+              <span class="section-heading-lower">About Our Site</span>
+            </h2>
+            <p>
+              양질의 영화들이 화수분처럼 쏟아져 나오는 가운데 우리는 어떻게 하면 고객들에게 정보를 제공할지 고민해왔습니다.
+              <br>
+              여러분들이 주인공이 되어 자신이 감상했던 영화들 중 다른 사람에게 소개시켜주고 싶은 영화를 마음껏 적어주시면 됩니다.
+              <br>
+              더 나은 사이트를 만들기 위해 항상 노력하겠습니다. 감사합니다!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

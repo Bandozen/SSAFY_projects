@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap5 %}
+<div class='w-50 mx-auto'>
+<h1>UPDATE</h1>
+<hr>
+<form action="{% url 'movies:update' movie.pk %}" method='POST' enctype='multipart/form-data'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-warning" type="reset" value="reset"/>
+    <input class="btn btn-warning" type="submit" value="제출" />
+</form>
+ <a class="btn btn-primary" href="{% url 'movies:detail' movie.pk %}" style="margin-top: 5px">Cancel</a>
+<hr>
+<a class="btn btn-primary" href="{% url 'movies:detail' movie.pk %}">BACK</a>
+</div>
+{% endblock content %}

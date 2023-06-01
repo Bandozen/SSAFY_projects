@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+      <img
+        class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+        src={% static 'assets/img/intro.jpg' %}
+        alt="..."
+      />
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4">
+          <span class="section-heading-upper">Introduce your Movie</span>
+          <span class="section-heading-lower">영화 재밌게 보기!</span>
+        </h2>
+        <p class="mb-3">
+          지금 당장 영화 홈페이지에 들어가 당신이 보고싶었던 영화를 예매하세요!
+          <br>
+          개봉영화를 실시간으로 반영해드리고 있습니다!
+        </p>
+        <div class="intro-button mx-auto">
+          <a class="btn btn-primary btn-xl" href="https://www.cgv.co.kr/">영화 예매하러 가기!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner bg-faded text-center rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Our Goal</span>
+            <span class="section-heading-lower">To You</span>
+          </h2>
+          <p class="mb-0">
+            우리나라 영화 소개 사이트 1위에 도달하기 위해 최선을 다할 것을 약속드립니다!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

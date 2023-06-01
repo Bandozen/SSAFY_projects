@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load bootstrap5 %}
+<div class="w-50 mx-auto border border-grey rounded p-5 pt-3 my-5">
+    <h2 class="text-center mb-2">정보 수정</h2>
+    <hr>
+    <form class="pt-2" action="{% url 'articles:update' article.pk %}" method='POST'>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between">
+            <input class="btn btn-primary" type="submit" value="수정">
+            <a class="btn btn-danger" href="{% url 'articles:detail' article.pk %}">수정 취소</a>
+        </div>
+    </form>
+</div>
+
+{% endblock contents %}

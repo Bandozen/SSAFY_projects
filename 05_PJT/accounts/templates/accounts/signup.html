@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load bootstrap5 %}
+<div class="w-50 mx-auto border border-grey rounded p-5 pt-3 my-5">
+    <h1>회원가입</h1>
+    <form action="{% url 'accounts:signup' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between">
+            <input class="btn btn-primary" type="submit" value="가입하기">
+        </div>
+    </form>
+    <hr>
+    <a href="{% url 'movies:index' %}">돌아가기</a>
+</div>
+{% endblock contents %}

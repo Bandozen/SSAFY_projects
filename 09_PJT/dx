@@ -1,0 +1,35 @@
+[33mcommit 6101b6561d3c8f24e872ef94abeac4e62be0739b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: lukylun <seoyj505@naver.com>
+Date:   Fri May 12 11:46:33 2023 +0900
+
+    B까지 구현
+
+[33mcommit 53d4d60b8b20720e25721bea0d5faaf13a87c561[m
+Author: imjunhwan <dlawnsghks12@naver.com>
+Date:   Fri May 12 10:49:44 2023 +0900
+
+    "카드 3개씩 띄웠습니다!"
+
+[33mcommit 08281dc2cb49e9bed1f9c23484324e7ef6529814[m
+Author: imjunhwan <dlawnsghks12@naver.com>
+Date:   Fri May 12 10:47:45 2023 +0900
+
+    "카드 포스터 이미지 띄웠습니다!"
+
+[33mcommit 8ce26e83314dbdbae3b89ca09478d2241612309e[m
+Author: imjunhwan <dlawnsghks12@naver.com>
+Date:   Fri May 12 10:39:25 2023 +0900
+
+    "테스트용 카드 만들었습니다."
+
+[33mcommit 481eaf716923e3a51f62484e7fe224a72e7b0d41[m
+Author: imjunhwan <dlawnsghks12@naver.com>
+Date:   Fri May 12 09:27:08 2023 +0900
+
+    "초기 프로젝트 생성입니다!"
+
+[33mcommit b18b99870965a0ee30ce5ca18ffade5016d9228e[m
+Author: 조찬익 <whcksdlr5909@naver.com>
+Date:   Fri May 12 09:20:25 2023 +0900
+
+    Initial commit

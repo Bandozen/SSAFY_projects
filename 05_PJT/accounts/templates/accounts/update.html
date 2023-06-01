@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load bootstrap5 %}
+<div class="w-50 mx-auto border border-grey rounded p-5 pt-3 my-5">
+    <h1>회원정보수정</h1>
+    <form action="{% url 'accounts:update' %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between">
+            <input class="btn btn-primary" type="submit" value="수정하기">
+            <a class="btn btn-danger" href="{% url 'accounts:delete' %}">회원탈퇴</a>
+        </div>
+    </form>
+    <hr>
+    <a href="{% url 'movies:index' %}">돌아가기</a>
+</div>
+{% endblock contents %}

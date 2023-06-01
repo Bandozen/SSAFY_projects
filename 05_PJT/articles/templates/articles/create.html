@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load bootstrap5 %}
+<div class="w-50 mx-auto border border-grey rounded p-5 pt-3 my-5">
+    <h2 class="text-center mb-2">자유게시판</h2>
+    <hr>
+    <form class="pt-2" action="{% url 'articles:create' %}" method='POST'>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="d-flex justify-content-between">
+            <input class="btn btn-primary" type="submit" value="글 작성">
+            <a class="btn btn-danger" href="{% url 'articles:index' %}">작성 취소</a>
+        </div>
+    </form>
+</div>
+
+{% endblock contents %}

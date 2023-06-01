@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap5 %}
+<div class='w-50 mx-auto'>
+<h1>회원정보수정</h1>
+<form action="{% url 'accounts:update' %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="수정하기">
+</form>
+<a href="{% url 'accounts:delete' %}">회원 탈퇴하기</a>
+<hr>
+<a href="{% url 'movies:index' %}">돌아가기</a>
+</div>
+{% endblock content %}

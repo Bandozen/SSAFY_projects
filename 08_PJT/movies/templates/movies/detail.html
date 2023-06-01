@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex justify-content-center">
+<div class="card h-100" style="width: 25rem;">
+  <img
+    src="{{movie.poster_path}}"
+    class="card-img-top"
+    alt="이미지를 표시할 수 없습니다."
+  />
+  <div class="card-body">
+    <h3 class="card-title">{{movie.title}}</h3>
+    <p class="card-text">
+      개봉 날짜 : {{movie.release_date}}
+      <br />
+      평균 평점 : {{movie.vote_average}} 점
+      <br />
+      장르 : 
+      {% for genre in movie.genres.all  %}
+      {{genre.name}}
+      {% endfor %}
+    </p>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="false"
+            aria-controls="collapseOne"
+          >
+            줄거리
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            {% if movie.overview == '' %}
+            <p>
+              <strong
+                >죄송합니다. 빠른 시일 내에 컨텐츠를 제공하겠습니다.</strong
+              >
+            </p>
+            {% else %}
+            <p>{{movie.overview}}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'movies:index' %}" class="btn btn-primary mt-3">돌아가기</a>
+  </div>
+</div>
+</div>
+{% endblock content %}

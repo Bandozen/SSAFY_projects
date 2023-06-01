@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap5 %}
+<div class='w-50 mx-auto'>
+<h1>CREATE</h1>
+<hr>
+<form action="{% url 'movies:create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class="btn btn-primary" type="submit">
+</form>
+<hr>
+<a class="btn btn-primary" href="{% url 'movies:index' %}">BACK</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% block content %}
+<h3>장르를 선택해주세요!</h3>
+<div class="row row-cols-1 row-cols-md-4">
+  {% for genre in genres %}
+  <div class="col">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        name="genre"
+        value="{{genre.name}}"
+        id="flexCheckDefault"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        {{genre.name}}
+      </label>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<hr />
+<div class="recommend-list">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for movie in movies %}
+    <div class="col d-flex justify-content-center">
+      <div
+        class="card {% for genre in movie.genres.all %} {{genre.name}} {% endfor %}"
+        style="width: 18rem"
+      >
+        <img
+          src="{{movie.poster_path}}"
+          class="card-img-top"
+          style="height: 400px"
+          alt="이미지를 표시할 수 없습니다."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">
+            개봉 날짜 : {{movie.release_date}}
+            <br />
+            평균 평점 : {{movie.vote_average}} 점
+          </p>
+          <a href="{% url 'movies:detail' movie.pk %}" class="btn btn-primary"
+            >자세히 보러가기</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %} {% block script %}
+<script>
+  const inputs = document.querySelectorAll(".form-check-input");
+  const recommend_list = document.querySelector(".recommend-list");
+
+  inputs.forEach((input) => {
+    input.addEventListener("click", (e) => {
+      const movies_list = document.querySelectorAll(".card");
+
+      genre_list = [];
+      movies_list.forEach((movie) => {
+        movie.style.display = "none";
+      });
+      inputs.forEach((input) => {
+        if (input.checked == true) {
+          //console.log(input.value)
+          genre_list.push(input.value);
+          //console.log(genre_list);
+        }
+
+        if (genre_list.length == 0) {
+          recommend_list.innerHTML = "";
+        } else {
+          //console.log(genre_list[0]);
+          genre_list.forEach((list_element) => {
+            const genres_ = document.querySelectorAll(`.${list_element}`);
+            //console.log(list_element);
+            genres_.forEach((genre_element) => {
+              //console.log(genre_element)
+              if (input.checked == true) {
+                genre_element.style.display = "flex";
+              } else {
+                genre_element.style.display = "flex";
+              }
+            });
+          });
+        }
+      });
+      //console.log(genre_list)
+    });
+  });
+</script>
+{% endblock script %}

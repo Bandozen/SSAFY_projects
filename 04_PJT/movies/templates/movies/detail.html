@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div class="w-50 mx-auto">
+  <h1>DETAIL</h1>
+  <hr />
+  <div class="card mx-auto" style="width: 18rem">
+    <img src="{{movie.poster_url}}" alt="이미지표시안됨" class="card-img-top" />
+    <div id="movie-content" class="card-body">
+      <p>{{movie.title}}</p>
+      <p>Audience : {{movie.audience}}</p>
+      <p>Release Dates : {{movie.release_Date}}</p>
+      <p>Genre : {{movie.genre}}</p>
+      <p>Score : {{movie.score}}</p>
+      <p>
+        Actor :
+        <img style="width: 50%" src="{{movie.actor_image.url}}" alt="" />
+      </p>
+      <p>{{movie.description}}</p>
+    </div>
+    <div class="card-footer text-muted d-flex">
+      <a class="btn btn-primary" href="{% url 'movies:update' movie.pk %}"
+        >수정하기</a
+      >
+      <form action="{% url 'movies:delete' movie.pk %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="삭제하기" />
+      </form>
+    </div>
+  </div>
+  <hr />
+
+  <a class="btn btn-primary" href="{% url 'movies:index' %} ">BACK</a>
+</div>
+{% endblock content %}
